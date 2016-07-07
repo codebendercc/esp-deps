@@ -1,7 +1,7 @@
 FROM codenvy/ubuntu_jdk8
 
 RUN sudo apt-get update && sudo apt-get -y install git autoconf build-essential gperf bison flex texinfo libtool libncurses5-dev wget gawk libc6-dev-i386 python-serial libexpat-dev
-RUN wget -q  https://github.com/akribopo/esp-dep/blob/master/xtensa-lx106-elf-ccf1cfd2.tar.bz2?raw=true  -O - | sudo tar -xj -C /opt
+RUN wget -q  https://github.com/codebendercc/esp-deps/blob/master/xtensa-lx106-elf-ccf1cfd2.tar.bz2?raw=true  -O - | sudo tar -xj -C /opt
 
 ENV ESP8266_RTOS_VERSION 1.4.0
 ENV ESP8266_RTOS_RELEASE_DATE 16_02_26_0
