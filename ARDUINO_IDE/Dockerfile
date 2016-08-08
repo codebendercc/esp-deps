@@ -9,10 +9,10 @@ RUN sudo ln -s /opt/arduino-${ARDUINO_IDE_VERSION}/arduino-builder /usr/local/bi
 ENV ARDUINO_BUILDER_HOME=/opt/arduino-${ARDUINO_IDE_VERSION}
 
 WORKDIR /opt/arduino-${ARDUINO_IDE_VERSION}/hardware
-RUN sudo wget -q  https://github.com/esp8266/Arduino/releases/download/2.3.0/esp8266-2.3.0.zip
-RUN sudo unzip -qq esp8266-2.3.0.zip  && sudo rm esp8266-2.3.0.zip
-RUN sudo mvesp8266-2.3.0 esp8266
-WORKDIR /opt/arduino-${ARDUINO_IDE_VERSION}/hardware/esp8266
-RUN sudo /usr/bin/sh tools/get.py
+RUN sudo mkdir esp8266com
+WORKDIR /opt/arduino-${ARDUINO_IDE_VERSION}/hardware/esp8266com
+RUN sudo git clone https://github.com/esp8266/Arduino.git esp8266
+WORKDIR /opt/arduino-${ARDUINO_IDE_VERSION}/hardware/esp8266com/esp8266/tools
+RUN sudo /usr/bin/python get.py
 RUN sudo chown -R user.user /opt/arduino-${ARDUINO_IDE_VERSION}/
 WORKDIR /projects
